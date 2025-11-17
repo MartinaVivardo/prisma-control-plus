@@ -1,27 +1,98 @@
-# PrismaControlPlus
+Prisma Control Plus
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
+Sistema web de gestión para el Supermercado Prisma, desarrollado en Angular.
 
-## Development server
+Este proyecto permite administrar productos, controlar stock, visualizar estadísticas y realizar el ingreso al sistema mediante un login simple para empleados.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+🚀 Funcionalidades principales
+🔐 Login de empleados
 
-## Code scaffolding
+Acceso con usuario y contraseña.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Permite bloquear las rutas internas si no se inició sesión.
 
-## Build
+Botón para cerrar sesión.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+📦 Gestión de productos
 
-## Running unit tests
+Lista completa de productos del supermercado.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Alta, baja y modificación (según versión del proyecto).
 
-## Running end-to-end tests
+Filtros por nombre y categoría.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Indicadores visuales para stock bajo.
 
-## Further help
+📊 Control de stock
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Aumentar o disminuir existencias por producto.
+
+Marcado automático en rojo cuando el stock ≤ 5.
+
+Interfaz moderna con botones +1 / -1.
+
+📈 Estadísticas
+
+Tablero resumen con:
+
+Total de productos distintos
+
+Stock total disponible
+
+Cantidad de productos en stock bajo
+
+Cantidad de categorías
+
+(Opcional) Mini-gráficos o indicadores
+
+🏠 Página de inicio moderna
+
+Acceso rápido a módulos
+
+Tarjetas visuales con descripción de cada sección
+
+Botones estilizados
+
+🛠️ Tecnologías utilizadas
+Tecnología	    Uso
+Angular 17+   	Framework principal
+TypeScript	    Lógica del proyecto
+HTML5 / CSS3	  Estructura y estilos
+Angular Routing	Navegación por componentes
+Git / GitHub	  Control de versiones
+VS Code       	Editor de desarrollo
+
+Estructura del proyecto
+src/
+ ├── app/
+ │   ├── core/
+ │   │    ├── services/
+ │   │    └── models/
+ │   ├── features/
+ │   │    ├── login/
+ │   │    ├── products/
+ │   │    ├── checkout/   (control de stock)
+ │   │    └── stats/
+ │   └── shared/
+ │        └── components/header/
+ │
+ ├── assets/
+ └── index.html
+ 
+▶️ Cómo ejecutar el proyecto localmente
+1️⃣ Clonar el repositorio
+git clone https://github.com/MartinaVivardo/prisma-control-plus.git
+
+2️⃣ Instalar dependencias
+npm install
+
+3️⃣ Ejecutar el servidor de desarrollo
+ng serve -o
+
+Se abrirá automáticamente en:
+
+http://localhost:4200/
+
+🔐 Credenciales de prueba
+Usuario: empleado
+Contraseña: 1234
