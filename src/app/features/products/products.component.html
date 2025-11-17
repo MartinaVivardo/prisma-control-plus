@@ -1,0 +1,127 @@
+<section class="products-page">
+  <h2>Gestión de productos</h2>
+  <p class="subtitle">
+    Alta, consulta y actualización del stock para los productos del supermercado Prisma.
+  </p>
+
+  <!-- Formulario para agregar producto -->
+  <div class="add-product-card">
+    <h3>Agregar nuevo producto</h3>
+
+    <form (ngSubmit)="agregarProducto()" #formProducto="ngForm">
+      <div class="form-row">
+        <div class="field">
+          <label>Nombre</label>
+          <input
+            type="text"
+            [(ngModel)]="nuevoProducto.nombre"
+            name="nombre"
+            required
+            placeholder="Ej: Arroz largo fino"
+          />
+        </div>
+
+        <div class="field">
+          <label>Categoría</label>
+          <select
+            [(ngModel)]="nuevoProducto.categoria"
+            name="categoria"
+          >
+            <option value="Lácteos">Lácteos</option>
+            <option value="Panadería">Panadería</option>
+            <option value="Almacén">Almacén</option>
+            <option value="Bebidas">Bebidas</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label>Precio ($)</label>
+          <input
+            type="number"
+            min="0"
+            [(ngModel)]="nuevoProducto.precio"
+            name="precio"
+          />
+        </div>
+
+        <div class="field">
+          <label>Stock inicial</label>
+          <input
+            type="number"
+            min="0"
+            [(ngModel)]="nuevoProducto.stock"
+            name="stock"
+          />
+        </div>
+
+        <div class="field submit-field">
+          <button
+            type="submit"
+            class="btn primary"
+            [disabled]="!formProducto.form.valid"
+          >
+            + Agregar producto
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- Filtros -->
+  <div class="products-filters">
+    <div class="filter-item">
+      <label>Buscar por nombre</label>
+      <input
+        type="text"
+        [(ngModel)]="filtroNombre"
+        (input)="aplicarFiltros()"
+        placeholder="Ej: leche, gaseosa..."
+        name="filtroNombre"
+      />
+    </div>
+
+    <div class="filter-item">
+      <label>Categoría</label>
+      <select
+        [(ngModel)]="filtroCategoria"
+        (change)="aplicarFiltros()"
+        name="filtroCategoria"
+      >
+        <option value="todos">Todas</option>
+        <option value="Lácteos">Lácteos</option>
+        <option value="Panadería">Panadería</option>
+        <option value="Almacén">Almacén</option>
+        <option value="Bebidas">Bebidas</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Tabla -->
+  <table class="products-table">
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Categoría</th>
+        <th>Precio ($)</th>
+        <th>Stock</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prod of productosFiltrados">
+        <td>{{ prod.nombre }}</td>
+        <td>{{ prod.categoria }}</td>
+        <td>{{ prod.precio }}</td>
+        <td>{{ prod.stock }}</td>
+        <td>
+         <button (click)="venderUnidad(prod)" [disabled]="prod.stock === 0">
+  Vender 1
+</button>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>

@@ -1,0 +1,128 @@
+.products-page {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.products-page h2 {
+  margin-bottom: 0.3rem;
+}
+
+.subtitle {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* Card de alta de producto */
+
+.add-product-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  padding: 1rem 1.2rem;
+  box-shadow: 0 3px 8px rgba(15, 23, 42, 0.04);
+  margin-bottom: 1.2rem;
+}
+
+.add-product-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+  font-size: 1rem;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+  flex: 1;
+}
+
+.field label {
+  font-size: 0.8rem;
+  margin-bottom: 0.2rem;
+}
+
+.field input,
+.field select {
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+}
+
+.submit-field {
+  display: flex;
+  align-items: flex-end;
+}
+
+/* Filtros */
+
+.products-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+}
+
+.filter-item label {
+  font-size: 0.8rem;
+  margin-bottom: 0.2rem;
+}
+
+.filter-item input,
+.filter-item select {
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+}
+
+/* Tabla */
+
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(15, 23, 42, 0.04);
+}
+
+.products-table th,
+.products-table td {
+  padding: 0.6rem 0.8rem;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.products-table th {
+  background-color: #f5f4ff;
+  font-size: 0.82rem;
+}
+
+.products-table button {
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.products-table button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+

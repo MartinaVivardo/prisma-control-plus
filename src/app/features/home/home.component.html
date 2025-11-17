@@ -1,0 +1,82 @@
+<section class="home-page">
+  <!-- Encabezado / saludo -->
+  <div class="home-header-card">
+    <div>
+      <p class="home-greeting" *ngIf="usuarioActual; else saludoGenerico">
+        Hola, {{ usuarioActual }} 👋
+      </p>
+      <ng-template #saludoGenerico>
+        <p class="home-greeting">
+          Bienvenido/a 👋
+        </p>
+      </ng-template>
+
+      <h1>Prisma Control</h1>
+      <p class="home-subtitle">
+        Panel unificado para gestionar productos, control de stock y estadísticas del supermercado Prisma.
+      </p>
+
+      <div class="home-actions">
+        <a routerLink="/productos" class="btn primary">Productos</a>
+        <a routerLink="/caja" class="btn secondary">Control de stock</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Métricas rápidas -->
+  <div class="metrics-grid">
+    <article class="metric-card">
+      <p class="metric-label">Productos distintos</p>
+      <p class="metric-value">{{ totalProductos }}</p>
+    </article>
+
+    <article class="metric-card">
+      <p class="metric-label">Stock total</p>
+      <p class="metric-value">{{ stockTotal }}</p>
+      <p class="metric-extra">unidades disponibles</p>
+    </article>
+
+    <article class="metric-card warning">
+      <p class="metric-label">Stock bajo</p>
+      <p class="metric-value">{{ productosStockBajo }}</p>
+      <p class="metric-extra">productos con ≤ 5 unidades</p>
+    </article>
+
+    <article class="metric-card">
+      <p class="metric-label">Categorías</p>
+      <p class="metric-value">{{ categoriasCantidad }}</p>
+      <p class="metric-extra">agrupadas por tipo de producto</p>
+    </article>
+  </div>
+
+  <!-- Tarjetas de módulos -->
+  <div class="home-grid">
+    <article class="home-card">
+      <div class="home-card-icon">📦</div>
+      <h2>Gestión de productos</h2>
+      <p>
+        Alta, consulta y actualización del stock en tiempo real, con filtros por nombre y categoría.
+      </p>
+      <a routerLink="/productos" class="card-link">Ver módulo de productos →</a>
+    </article>
+
+    <article class="home-card">
+      <div class="home-card-icon">🧾</div>
+      <h2>Control de stock</h2>
+      <p>
+        Ajuste manual de existencias para cada producto, registrando ingresos y egresos de mercadería.
+      </p>
+      <a routerLink="/caja" class="card-link">Ir a control de stock →</a>
+    </article>
+
+    <article class="home-card">
+      <div class="home-card-icon">📊</div>
+      <h2>Estadísticas</h2>
+      <p>
+        Resumen general: cantidad de productos, stock disponible y alertas de stock bajo por categoría.
+      </p>
+      <a routerLink="/estadisticas" class="card-link">Ver estadísticas →</a>
+    </article>
+  </div>
+</section>
+

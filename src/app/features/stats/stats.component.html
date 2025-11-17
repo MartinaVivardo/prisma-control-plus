@@ -1,0 +1,53 @@
+<section class="stats-page">
+  <h2>Estadísticas del stock – Prisma</h2>
+  <p class="subtitle">
+    Resumen general del estado actual de los productos en el sistema.
+  </p>
+
+  <!-- Tarjetas principales -->
+  <div class="stats-cards">
+    <article class="stat-card">
+      <h3>Productos distintos</h3>
+      <p class="stat-value">{{ totalProductos }}</p>
+      <p class="stat-label">Cantidad de ítems cargados en el sistema.</p>
+    </article>
+
+    <article class="stat-card">
+      <h3>Stock total</h3>
+      <p class="stat-value">{{ stockTotal }}</p>
+      <p class="stat-label">Unidades disponibles sumando todas las góndolas.</p>
+    </article>
+
+    <article class="stat-card">
+      <h3>Stock bajo</h3>
+      <p class="stat-value warning">{{ productosStockBajo }}</p>
+      <p class="stat-label">
+        Productos con stock menor o igual a 5 unidades.
+      </p>
+    </article>
+  </div>
+
+  <!-- Resumen por categoría -->
+  <section class="category-section">
+    <h3>Productos por categoría</h3>
+
+    <table class="category-table" *ngIf="resumenCategorias.length > 0; else noData">
+      <thead>
+        <tr>
+          <th>Categoría</th>
+          <th>Cantidad de productos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cat of resumenCategorias">
+          <td>{{ cat.categoria }}</td>
+          <td>{{ cat.cantidadProductos }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ng-template #noData>
+      <p>No hay datos de categorías para mostrar.</p>
+    </ng-template>
+  </section>
+</section>

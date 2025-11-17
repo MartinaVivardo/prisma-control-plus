@@ -1,0 +1,36 @@
+<header class="navbar">
+  <div class="navbar-logo">
+    PRISMA
+  </div>
+
+  <nav class="navbar-links">
+    <a routerLink="/inicio" routerLinkActive="active">
+      Inicio
+    </a>
+    <a routerLink="/productos" routerLinkActive="active">
+      Productos
+    </a>
+    <a routerLink="/caja" routerLinkActive="active">
+      Control de stock
+    </a>
+    <a routerLink="/estadisticas" routerLinkActive="active">
+      Estadísticas
+    </a>
+
+    <!-- Mostrar LOGIN solo si NO está logueado -->
+    <a
+      *ngIf="!isLoggedIn()"
+      routerLink="/login"
+      routerLinkActive="active">
+      Login
+    </a>
+
+    <!-- Mostrar CERRAR SESIÓN solo si SÍ está logueado -->
+    <button
+      *ngIf="isLoggedIn()"
+      class="logout-btn"
+      (click)="logout()">
+      Cerrar sesión
+    </button>
+  </nav>
+</header>

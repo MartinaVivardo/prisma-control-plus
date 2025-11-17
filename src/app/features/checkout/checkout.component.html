@@ -1,0 +1,96 @@
+<section class="stock-page">
+  <h2>Control de stock</h2>
+  <p class="subtitle">
+    Ajuste manual de existencias para los productos del supermercado Prisma.
+  </p>
+
+  <!-- Resumen rápido -->
+  <div class="stock-summary">
+    <div class="summary-card">
+      <p class="summary-label">Stock total</p>
+      <p class="summary-value">{{ stockTotal }}</p>
+      <p class="summary-extra">unidades disponibles</p>
+    </div>
+    <div class="summary-card warning">
+      <p class="summary-label">Productos con stock bajo</p>
+      <p class="summary-value">{{ productosStockBajo }}</p>
+      <p class="summary-extra">≤ 5 unidades</p>
+    </div>
+  </div>
+
+  <!-- Filtros -->
+  <div class="stock-filters">
+    <div class="filter-item">
+      <label>Buscar producto</label>
+      <input
+        type="text"
+        [(ngModel)]="filtroNombre"
+        (input)="aplicarFiltros()"
+        placeholder="Ej: leche, gaseosa..."
+      />
+    </div>
+
+    <div class="filter-item">
+      <label>Categoría</label>
+      <select
+        [(ngModel)]="filtroCategoria"
+        (change)="aplicarFiltros()"
+      >
+        <option value="todos">Todas</option>
+        <option value="Lácteos">Lácteos</option>
+        <option value="Panadería">Panadería</option>
+        <option value="Almacén">Almacén</option>
+        <option value="Bebidas">Bebidas</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Tabla principal -->
+  <table class="stock-table">
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Categoría</th>
+        <th>Precio ($)</th>
+        <th>Stock actual</th>
+        <th>Estado</th>
+        <th>Ajustar stock</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prod of productosFiltrados">
+        <td>{{ prod.nombre }}</td>
+        <td>{{ prod.categoria }}</td>
+        <td>{{ prod.precio }}</td>
+        <td [class.low-stock]="prod.stock <= 5">
+          {{ prod.stock }}
+        </td>
+        <td>
+          <span
+            class="badge"
+            [ngClass]="{
+              'badge-ok': obtenerEstado(prod) === 'ok',
+              'badge-low': obtenerEstado(prod) === 'bajo',
+              'badge-critical': obtenerEstado(prod) === 'critico'
+            }"
+          >
+            {{ obtenerEstado(prod) === 'ok' ? 'OK' : (obtenerEstado(prod) === 'bajo' ? 'Bajo' : 'Crítico') }}
+          </span>
+        </td>
+        <td class="actions">
+          <button (click)="disminuirStock(prod, 5)" [disabled]="prod.stock === 0">-5</button>
+          <button (click)="disminuirStock(prod, 1)" [disabled]="prod.stock === 0">-1</button>
+          <button (click)="incrementarStock(prod, 1)">+1</button>
+          <button (click)="incrementarStock(prod, 5)">+5</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+ <p class="hint">
+  Los productos con <strong>stock bajo</strong> o <strong>crítico</strong> se muestran
+  resaltados para priorizar el reabastecimiento.
+</p>
+
+</section>
+

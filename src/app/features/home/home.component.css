@@ -1,0 +1,159 @@
+.home-page {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Encabezado / hero */
+
+.home-header-card {
+  margin-bottom: 1.8rem;
+  padding: 1.5rem 1.8rem;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #f2efff, #f8f6ff);
+  border: 1px solid rgba(91, 61, 217, 0.15);
+  box-shadow: 0 12px 25px rgba(15, 23, 42, 0.08);
+}
+
+.home-greeting {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  margin-bottom: 0.3rem;
+}
+
+.home-header-card h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.home-subtitle {
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  max-width: 620px;
+}
+
+.home-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.3rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+}
+
+.btn.primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.btn.primary:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.btn.secondary {
+  background-color: #ffffff;
+  color: var(--color-primary);
+  border-color: var(--color-border);
+}
+
+.btn.secondary:hover {
+  background-color: #f5f5ff;
+}
+
+/* Métricas rápidas */
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.metric-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  padding: 0.8rem 1rem;
+  box-shadow: 0 2px 5px rgba(15, 23, 42, 0.04);
+}
+
+.metric-card.warning {
+  border-color: rgba(179, 38, 30, 0.35);
+}
+
+.metric-label {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  margin-bottom: 0.25rem;
+}
+
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.15rem;
+}
+
+.metric-extra {
+  font-size: 0.78rem;
+  color: var(--color-muted);
+}
+
+/* Tarjetas de módulos / secciones */
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.1rem;
+}
+
+.home-card {
+  background-color: #ffffff;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-border);
+  padding: 1.1rem 1.2rem;
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.06);
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    border-color 0.15s ease;
+  cursor: default;
+}
+
+.home-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(91, 61, 217, 0.18);
+  border-color: rgba(91, 61, 217, 0.6);
+}
+
+.home-card-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f0ff;
+  margin-bottom: 0.6rem;
+  font-size: 1.1rem;
+}
+
+.home-card h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+
+.home-card p {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  margin-bottom: 0.8rem;
+}
+
+.card-link {
+  font-size: 0.85rem;
+  text-decoration: none;
+}
